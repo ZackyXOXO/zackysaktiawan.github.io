@@ -1,0 +1,112 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card bg-dark">
+            <div class="card-header">
+                <a class="btn btn-danger" href="index.html">Kembali</a>
+                <h1 align="center">Kalkulator Sederhana</h1>
+            </div>
+            <div class="card-body ">
+                <table class="card bg-dark" id="calcu">
+                    <tr>
+                        <td colspan="4"><input class="btn btn-primary" type="text" id="result" readonly></td>
+                        <td><input class="btn btn-danger" type="button" value="C" onclick="clr()"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="btn btn-danger " type="button" value="1" onclick="dis('1')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="2" onclick="dis('2')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="3" onclick="dis('3')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="/" onclick="dis('/')"
+                                onkeydown="myFunction(event)"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="btn btn-danger" type="button" value="4" onclick="dis('4')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="5" onclick="dis('5')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="6" onclick="dis('6')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="*" onclick="dis('*')"
+                                onkeydown="myFunction(event)"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="btn btn-danger" type="button" value="7" onclick="dis('7')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="8" onclick="dis('8')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="9" onclick="dis('9')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="-" onclick="dis('-')"
+                                onkeydown="myFunction(event)"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="btn btn-danger" type="button" value="0" onclick="dis('0')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="." onclick="dis('.')"
+                                onkeydown="myFunction(event)"></td>
+                        <td><input class="btn btn-danger" type="button" value="=" onclick="solve()"></td>
+                        <td><input class="btn btn-danger" type="button" value="+" onclick="dis('+')"
+                                onkeydown="myFunction(event)"></td>
+                    </tr>
+                </table>
+
+                <script>
+                    // Function that display value
+                    function dis(val) {
+                        document.getElementById("result").value += val
+                    }
+
+                    function myFunction(event) {
+                        if (event.key == '0' || event.key == '1'
+                            || event.key == '2' || event.key == '3'
+                            || event.key == '4' || event.key == '5'
+                            || event.key == '6' || event.key == '7'
+                            || event.key == '8' || event.key == '9'
+                            || event.key == '+' || event.key == '-'
+                            || event.key == '*' || event.key == '/')
+                            document.getElementById("result").value += event.key;
+                    }
+
+                    var cal = document.getElementById("calcu");
+                    cal.onkeyup = function (event) {
+                        if (event.keyCode === 13) {
+                            console.log("Enter");
+                            let x = document.getElementById("result").value
+                            console.log(x);
+                            solve();
+                        }
+                    }
+
+                    // Function that evaluates the digit and return result
+                    function solve() {
+                        let x = document.getElementById("result").value
+                        let y = eval(x)
+                        document.getElementById("result").value = y
+                    }
+
+                    // Function that clear the display
+                    function clr() {
+                        document.getElementById("result").value = ""
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
