@@ -9,20 +9,25 @@
 </head>
 
 <body id="body">
+
+    <audio hidden autoplay loop>
+        <source src="assets/music/Clairo - Pretty Girl.mp3" type="audio/mpeg">
+    </audio>
     <div class="title">
-        <h1>Hello There !!</h1>
+        <h2 id="greet"></h2>
     </div>
     <div class="container" id="">
         <div class="profile-image">
-            <img src="assets/images/raphtalia.jpg" alt="Pennywise"  style="border-radius: 50%;">
+            <img src="assets/images/raphtalia.jpg" alt="raphtalia-wangy"  style="border-radius: 50%;">
         </div>
         <div class="desc">
             <h2>I am
                 <span class="txt-rotate" data-period="2000"
-                    data-rotate='[ "Fun!", "friendly.", "Humble.", "Struggling.", "Comfortable." ]'></span>
+                    data-rotate='[ "Fun!", "friendly.", "Humble." ]'></span>
             </h2>
             <h3>Junior software development</h3>
             <p>Started Learn About Programming</p>
+            <p id="time"></p>
         </div>
     </div>
     <!-- <div class="white-content">
@@ -37,6 +42,9 @@
 
     </div>
     <script src="./js/text-walk.js"></script>
+    <script src="js/box.js">
+    </script>
+    <script src="js/time.js"></script>
 </body>
 
 </html>
